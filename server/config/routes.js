@@ -1,4 +1,5 @@
-const users = require('./../controllers/users.js');
+const users = require('./../controllers/users.js'),
+      projects = require('./../controllers/projects.js');
 
 module.exports = function(app) {
   app.get('/users', users.index)

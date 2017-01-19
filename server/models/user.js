@@ -28,6 +28,10 @@ const userSchema = new mongoose.Schema({
     required: [true, 'password is required'],
     minlength: 3
   },
+  projects: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Project'
+  }],
   admin: {
     type: Boolean,
     default: false

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
-      User = mongoose.model('User');
+      User = mongoose.model('User'),
+      Project = mongoose.model('Project');
 
 module.exports = (function() {
   return {
@@ -27,7 +28,15 @@ module.exports = (function() {
     },
     getOneUser: function(req, res) {
       console.log('user profile request');
-      User.findOne()
+      User.findOne({_id: req.body._id})
+      .populate({
+        path: 'projects',
+        model: 'Project'
+      })
+      .exec(function(err, user) {
+        if (err) {throw err}
+        res.json(user);
+      });
     },
     login: function(req, res) {
       console.log('login request erceived');
