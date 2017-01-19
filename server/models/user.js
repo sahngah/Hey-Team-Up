@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, 'email is required'],
-    unique: true,
+    unique: [true,'email already in use']
     // validate:[{
     //   validator: function(email) {
     //     // email regex
@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
   },
   admin: {
     type: Boolean,
-    default: 0
+    default: false
   }
 }, {
   timestamps: true
