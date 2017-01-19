@@ -1,0 +1,6 @@
+.register_button{
+  color:black;
+}
+.register_button:hover{
+  text-decoration: none;
+}
