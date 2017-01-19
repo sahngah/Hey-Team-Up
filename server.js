@@ -1,8 +1,9 @@
-var express = require('express');
-var app = express();
-var bp = require('body-parser');
-var path = require('path');
-var session = require('express-session');
+const express = require('express'),
+      app = express(),
+      bp = require('body-parser'),
+      path = require('path'),
+      session = require('express-session'),
+      port = process.env.PORT || 1111;
 
 app.use(express.static(path.join(__dirname + '/client')))
 .use(express.static(path.join(__dirname + '/client/assets')))
@@ -18,6 +19,6 @@ app.use(express.static(path.join(__dirname + '/client')))
 require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 
-app.listen(1111, function(){
-  console.log('running on port 1111!');
+app.listen(port, function(){
+  console.log(`running on port ${port}!`);
 })
