@@ -19,6 +19,9 @@ app.use(express.static(path.join(__dirname + '/client')))
 require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 
+// Dev process for creating sample db. Delete before deployment
+require('./server/controllers/sampleDb.sj');
+
 app.listen(port, function(){
   console.log(`running on port ${port}!`);
 })

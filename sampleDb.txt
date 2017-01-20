@@ -1,2 +1,0 @@
-use heyteamup;
-db.createCollection('users');

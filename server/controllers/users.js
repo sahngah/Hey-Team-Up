@@ -14,7 +14,7 @@ module.exports = (function() {
     },
     create: function(req, res) {
       console.log('register request received');
-      var userInstance = new User (req.body); //requires req.body to have the user object that matches user schema
+      var userInstance = new User(req.body);
       userInstance.save(function(err, newUser) {
         if (err) {
           console.log(err, "err");
