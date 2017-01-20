@@ -51,7 +51,8 @@ module.exports = (function() {
             req.session.save();
             res.json({
               '_id': user._id,
-              'message': "successfully logged in"
+              'message': "successfully logged in",
+              'user': user
             });
           } else {
             res.json({

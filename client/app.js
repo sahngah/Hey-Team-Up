@@ -8,6 +8,9 @@ app.config(function($routeProvider){
   .when('/register', {
     templateUrl: './partials/register.html'
   })
+  .when('/myprofile', {
+    templateUrl: './partials/myprofile.html'
+  })
   .otherwise({
     redirectTo: '/'
   })
