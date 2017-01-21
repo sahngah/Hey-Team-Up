@@ -14,5 +14,8 @@ app.factory('user_factory', function($http){
       callback(res.data.user);
     })
   }
+  factory.checkOneUser = function(callback){
+    console.log('user factory: checking one user funcion running!');
+  }
   return factory;
 })

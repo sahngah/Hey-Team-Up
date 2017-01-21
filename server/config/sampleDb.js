@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'),
-      User = mongoose.model('User');,
+      User = mongoose.model('User');
       Project = mongoose.model('Project');
 
 module.exports = (function() {
