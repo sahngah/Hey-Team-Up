@@ -62,6 +62,14 @@ module.exports = (function() {
         }
       })
     },
+    checkSession: function(req, res) {
+      console.log("checking for user in session");
+      if (req.session.user) {
+        res.json(req.session.user)
+      } else {
+        res.json(null);
+      }
+    },
     logout: function(req, res) {
       req.session.destroy();
       res.redirect('/');

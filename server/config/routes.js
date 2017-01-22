@@ -5,6 +5,7 @@ module.exports = function(app) {
   app.get('/users', users.index)
      .get('/users/:id', users.getOneUser)
      .get('users/logout', users.logout)
+     .get('/users/checkSession', users.checkSession)
      .post('/users', users.create)
      .post('/users/login', users.login)
      .patch('/users/:id', users.update) //need validations
