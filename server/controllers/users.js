@@ -48,7 +48,7 @@ module.exports = (function() {
       });
     },
     login: function(req, res) {
-      console.log('login request received');
+      console.log('login request received. Email: ', req.body.email);
       User.findOne({email: req.body.email}, function(err, user) {
         if (err) {
           res.json({errors: 'please try again'});
@@ -57,7 +57,6 @@ module.exports = (function() {
         } else {
           if (user.validatePassword(req.body.password)) {
             req.session.user = user;
-            console.log('let me see if it saved in session', req.session.user);
             req.session.save();
             res.json({
               'message': "successfully logged in",
@@ -74,15 +73,14 @@ module.exports = (function() {
     checkSession: function(req, res) {
       console.log("checking for user in session");
       if (req.session.user) {
-        console.log('***********', req.session.user);
         res.json(req.session.user)
       } else {
-        console.log('*******ughughuhuhgu');
         res.json(null);
       }
     },
     logout: function(req, res) {
       req.session.destroy();
+      console.log('logging out user');
       res.redirect('/');
     },
     delete: function(req, res) {
