@@ -5,7 +5,7 @@ app.controller('user_controller', ['$scope', 'user_factory', '$location', functi
     UF.createNewUser($scope.newUser, function(newUser){
       $scope.curUser = newUser;
     })
-    $location.path('/');
+    $location.path('/myprofile');
   }
   $scope.login = function(){
     console.log('user controller: login function running!');
