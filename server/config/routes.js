@@ -7,4 +7,7 @@ module.exports = function(app) {
      .get('users/logout', users.logout)
      .post('/users', users.create)
      .post('/users/login', users.login)
+     .get('/projects', projects.index)
+     .get('/projects/:id', projects.getOneProject)
+     .post('/projects', projects.create);
 }
