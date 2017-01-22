@@ -1,3 +1,10 @@
 <div ng-controller="profile_controller">
-
+  <h1>Welcome, {{curUser.firstName[0].toUpperCase() + curUser.firstName.slice(1)}}!</h1>
+  <div align="center">
+    <ul class="navbar">
+      <li><a href="#!/">Home</a> |</li>
+      <li><a href="#!/project/new">New Project</a> |</li>
+      <li><a href="/users/logout">Logout</a></li>
+    </ul>
+  </div>
 </div>

@@ -28,7 +28,7 @@ app.factory('user_factory', function($http, $location){
   factory.checkOneUser = function(callback){
     console.log('user factory: checking if user logged in');
     $http.get('/users/checkSession').then(function(res){
-      console.log(res);
+      callback(res.data);
     })
   }
   return factory;

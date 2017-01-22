@@ -11,6 +11,9 @@ app.config(function($routeProvider){
   .when('/myprofile', {
     templateUrl: './partials/myprofile.html'
   })
+  .when('/project/new', {
+    templateUrl: './partials/newproject.html'
+  })
   .otherwise({
     redirectTo: '/'
   })

@@ -1,6 +1,19 @@
+/* Main Page */
 .register_button{
   color:black;
 }
-.register_button:hover{
-  text-decoration: none;
+  .register_button:hover{
+    text-decoration: none;
+  }
+.mainpage_project{
+  display:inline-block;
+  width:350px;
+  height:350px;
+  /*background-color: pink;*/
+  border: dashed 1px black;
+  margin:1%;
+}
+
+.navbar li{
+  display: inline;
 }

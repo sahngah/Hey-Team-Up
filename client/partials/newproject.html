@@ -1,0 +1,35 @@
+<div ng-controller="project_controller">
+  <div ng-if="!curUser">
+    <h1><a href="#!/register">Login</a> To Create A New Project:</h1>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Title" disabled>
+      </div>
+      <textarea class="form-control" rows="8" cols="40" placeholder="Description" disabled></textarea>
+      <button class="btn btn-warning">Submit</button>
+    </form>
+    <div align="center">
+      <ul class="navbar">
+        <li><a href="#!/">Home</a> |</li>
+        <li><a href="#!/register">Login</a></li>
+      </ul>
+    </div>
+  </div>
+  <div ng-if="curUser != null">
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Title" ng-model="newProject.title">
+      </div>
+      <textarea class="form-control" rows="8" cols="40" placeholder="Description" ng-model="newProject.description"></textarea>
+      <button type="submit" class="btn btn-default" ng-click="CreateNewProject(curUser._id)">Submit</button>
+    </form>
+    <div align="center">
+      <ul class="navbar">
+        <li><a href="#!/">Home</a> |</li>
+        <li><a href="/users/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
