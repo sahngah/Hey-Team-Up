@@ -20,7 +20,7 @@ require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 
 // Dev process for creating sample db. Delete before deployment
-//require('./server/config/sampleDb.js');
+require('./server/config/sampleDb.js');
 
 app.listen(port, function(){
   console.log(`running on port ${port}!`);

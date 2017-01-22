@@ -17,13 +17,16 @@ module.exports = (function() {
       var userInstance = new User(req.body);
       userInstance.save(function(err, newUser) {
         if (err) {
-          console.log(err, "err");
+          console.log("Error:", err);
           res.json(err);
+        } else {
+          req.session.user = newUser;
+          req.session.save();
+          res.json({
+            'message': "new user successfully created",
+            'newUser': newUser
+          });
         }
-        res.json({
-          'message': "new user successfully created",
-          'newUser': newUser
-        });
       });
     },
     getOneUser: function(req, res) {
@@ -34,13 +37,18 @@ module.exports = (function() {
         model: 'Project'
       })
       .exec(function(err, user) {
-        if (err) {throw err}
+        if (err) {
+          console.log(err);
+          res.json({
+            "message": "user not found"
+          });
+        }
         console.log('sending user data');
         res.json(user);
       });
     },
     login: function(req, res) {
-      console.log('login request erceived');
+      console.log('login request received');
       User.findOne({email: req.body.email}, function(err, user) {
         if (err) {
           res.json(err);
