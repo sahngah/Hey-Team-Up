@@ -7,9 +7,11 @@ module.exports = function(app) {
      .get('users/logout', users.logout)
      .post('/users', users.create)
      .post('/users/login', users.login)
+     .patch('/users/:id', users.update) //need validations
      .delete('users/:id', users.delete)
      .get('/projects', projects.index)
      .get('/projects/:id', projects.getOneProject)
      .post('/projects', projects.create)
-     .delete('/projects/:id', projects.deleteProject) // need backend validations!
+     .patch('/projects/:id', projects.update) //need validations
+     .delete('/projects/:id', projects.deleteProject) // needs validations!
 }

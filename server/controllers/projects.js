@@ -39,6 +39,16 @@ module.exports = (function() {
         if (err) {throw err}
         console.log(`successfully deleted project with id ${req.params.id}`);
       })
+    },
+    update: function(req, res) {
+      console.log("project update requested");
+      Project.update({_id: req.params.id}, req.body.projectUpdates, function(err, updatedProject) {
+        if (err) {throw err}
+        res.json({
+          "message": "successfully updated project",
+          "updatedProject": updatedProject
+        })
+      })
     }
   }
 })();

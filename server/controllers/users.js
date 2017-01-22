@@ -67,11 +67,21 @@ module.exports = (function() {
       res.redirect('/');
     },
     delete: function(req, res) {
-      User.remove({_id: req.params.id}, function(err) {if (err) {throw err}
-      res.json({
-        message: `succcessfully deleted user with id ${req.params.id}`
+      User.remove({_id: req.params.id}, function(err) {
+        if (err) {throw err}
+        res.json({
+          message: `succcessfully deleted user with id ${req.params.id}`
+        })
       })
-    })
+    },
+    update: function(req, res) {
+      User.update({_id: req.params.id}, req.body.userUpdates, function(err, updatedUser) {
+        if (err) {throw err}
+        res.json({
+          'message': "Successfully updated user",
+          "updatedUser": updatedUser
+        })
+      })
     }
   }
 })();
