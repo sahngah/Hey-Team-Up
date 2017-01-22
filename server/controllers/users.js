@@ -18,8 +18,10 @@ module.exports = (function() {
       userInstance.save(function(err, newUser) {
         if (err) {
           console.log(err, "err");
-          res.json(err);
+          res.json({errors: "please try again"});
         }
+        req.session.user = newUser;
+        req.session.save();
         res.json({
           'message': "new user successfully created",
           'newUser': newUser
@@ -43,12 +45,13 @@ module.exports = (function() {
       console.log('login request erceived');
       User.findOne({email: req.body.email}, function(err, user) {
         if (err) {
-          res.json(err);
+          res.json({errors: 'please try again'});
         } else if (!user) {
           res.json({errors: "Invalid email and/or username"});
         } else {
           if (user.validatePassword(req.body.password)) {
             req.session.user = user;
+            console.log('let me see if it saved in session', req.session.user);
             req.session.save();
             res.json({
               'message': "successfully logged in",
@@ -65,8 +68,10 @@ module.exports = (function() {
     checkSession: function(req, res) {
       console.log("checking for user in session");
       if (req.session.user) {
+        console.log('***********', req.session.user);
         res.json(req.session.user)
       } else {
+        console.log('*******ughughuhuhgu');
         res.json(null);
       }
     },
