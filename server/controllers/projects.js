@@ -32,6 +32,13 @@ module.exports = (function() {
         if (err) {throw err}
         res.json(project);
       })
+    },
+    deleteProject: function(req, res) {
+      console.log("project delete request received");
+      Project.remove({_id: req.params.id}, function(err) {
+        if (err) {throw err}
+        console.log(`successfully deleted project with id ${req.params.id}`);
+      })
     }
   }
 })();

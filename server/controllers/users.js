@@ -21,20 +21,21 @@ module.exports = (function() {
           res.json(err);
         }
         res.json({
-          'message': "new user created",
+          'message': "new user successfully created",
           'newUser': newUser
         });
       });
     },
     getOneUser: function(req, res) {
       console.log('user profile request');
-      User.findOne({_id: req.body._id})
+      User.findOne({_id: req.params.id})
       .populate({
         path: 'projects',
         model: 'Project'
       })
       .exec(function(err, user) {
         if (err) {throw err}
+        console.log('sending user data');
         res.json(user);
       });
     },
@@ -50,7 +51,6 @@ module.exports = (function() {
             req.session.user = user;
             req.session.save();
             res.json({
-              '_id': user._id,
               'message': "successfully logged in",
               'user': user
             });
@@ -65,6 +65,13 @@ module.exports = (function() {
     logout: function(req, res) {
       req.session.destroy();
       res.redirect('/');
+    },
+    delete: function(req, res) {
+      User.remove({_id: req.params.id}, function(err) {if (err) {throw err}
+      res.json({
+        message: `succcessfully deleted user with id ${req.params.id}`
+      })
+    })
     }
   }
 })();
