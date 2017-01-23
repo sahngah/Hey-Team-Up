@@ -1,4 +1,4 @@
-app.controller('project_controller', ['$scope', 'user_factory', '$location', function($scope, UF, $location){
+app.controller('project_controller', ['$scope', 'user_factory', '$location', 'project_factory', function($scope, UF, $location, PF){
   UF.checkOneUser(function(user){
     if(user != null){
       $scope.curUser = user;
@@ -6,9 +6,8 @@ app.controller('project_controller', ['$scope', 'user_factory', '$location', fun
       $scope.curUser = null;
     }
   })
-  $scope.CreateNewProject = function(userid){
+  $scope.CreateNewProject = function(){
     console.log('project controller: create new project function running!')
-    console.log('userid', userid);
-    console.log('form', $scope.newProject);
+    PF.CreateNewProject($scope.newProject);
   }
 }])

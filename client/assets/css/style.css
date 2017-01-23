@@ -5,6 +5,18 @@
   .register_button:hover{
     text-decoration: none;
   }
+.logo{
+  font-family: 'Pacifico', cursive;
+  font-size:45px;
+}
+.small_logo{
+  font-size:30px;
+  font-family: 'Pacifico', cursive;
+  color:black;
+}
+  .logo_a:hover{
+    text-decoration: none;
+  }
 .mainpage_project{
   display:inline-block;
   width:350px;
@@ -16,4 +28,8 @@
 
 .navbar li{
   display: inline;
+}
+.form-control.search{
+  width:92%;
+  display:inline;
 }
