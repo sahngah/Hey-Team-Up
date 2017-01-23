@@ -27,7 +27,7 @@ var projectSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// removes references in users for deleted projects
+// removes references in users for deleted projects. Checks for all places where users have the project's id in projects and projectCreated
 projectSchema.pre('remove', function(next) {
   console.log("removing project references from users");
   this.model("User").update({},

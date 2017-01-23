@@ -45,11 +45,23 @@ module.exports = (function() {
     },
     deleteProject: function(req, res) {
       console.log("project delete request received");
-      Project.findOne({_id: req.params.id}, function(err, projectToBeDeleted) {
-        if (err) {throw err}
-        projectToBeDeleted.remove();
-        console.log(`successfully deleted project with id ${req.params.id}`);
-      })
+      if (req.session.user) {
+        Project.findOne({_id: req.params.id}, function(err, projectToBeDeleted) {
+          if (err) {throw err}
+          if (projectToBeDeleted.creator == req.session.user._id) {
+            projectToBeDeleted.remove();
+            console.log(`successfully deleted project with id ${req.params.id}`);
+            res.json({
+              "message": "Successfully deleted project"
+            });
+          }
+        })
+      } else {
+        console.log("user does not have permission to delete project");
+        res.json({
+          "errors": "You do not have permission to delete this project"
+        })
+      }
     },
     update: function(req, res) {
       console.log("project update requested");
