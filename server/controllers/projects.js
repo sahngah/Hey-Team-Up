@@ -12,14 +12,24 @@ module.exports = (function() {
     },
     create: function(req, res) {
       console.log('create project request received');
-      let projectInstance = new Project(req.project);
-      projectInstance.save(function(err, newProject) {
-        if (err) {throw err}
-        res.json({
-          "message": "new project added to db",
-          "newProject": newProject
+      User.findOne({_id: req.session.user._id}, function(err, user) {
+        let projectInstance = new Project(req.project);
+        projectInstance.creator = user._id;
+        projectInstance.memebers.push(user);
+        projectInstance.save(function(err, newProject) {
+          if (err) {throw err}
+          user.projects.push(newProject);
+          user.projectsCreated.push(newProject);
+          user.save(function(err) {
+            if(err) {throw err}
+            res.json({
+              "message": "new project added to db",
+              "newProject": newProject
+            });
+          })
         });
-      });
+      })
+
     },
     getOneProject: function(req, res) {
       console.log("project data requested");

@@ -11,7 +11,7 @@ module.exports = (function() {
         firstName: "Anthony",
         lastName: "Cho",
         email: "ac@mail.com",
-        password: "secret",
+        password: "password",
         admin: true
       });
       userOneInstance.save(function(err, userOne) {
@@ -24,7 +24,7 @@ module.exports = (function() {
         firstName: "Sahngah",
         lastName: "Lee",
         email: "sl@mail.com",
-        password: "secret",
+        password: "password",
         admin: true
       });
       userTwoInstance.save(function(err, userTwo) {
@@ -34,17 +34,22 @@ module.exports = (function() {
         console.log("user two created");
         const projectInstance = new Project({
           title: "coolProject",
-          description: "This is an example project for testing purposes"
-
+          description: "This is an example project for testing purposes",
+          category: "javascript"
         });
         projectInstance.creator = userTwo._id;
-        userTwo.projects.push(projectInstance);
         projectInstance.members.push(userTwo)
         projectInstance.save(function(err, newProject) {
           if (err) {
             throw err
           }
-          console.log("successfully created project");
+          userTwo.projectsCreated.push(newProject);
+          userTwo.projects.push(newProject);
+          userTwo.save(function(err) {
+            if (err) {throw err}
+            console.log("successfully created project");
+            console.log("created sampledb");
+          })
         })
       })
     } else {

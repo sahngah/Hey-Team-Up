@@ -32,6 +32,10 @@ const userSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'Project'
   }],
+  projectsCreated: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Project'
+  }],
   admin: {
     type: Boolean,
     default: false
