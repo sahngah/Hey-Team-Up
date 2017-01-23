@@ -13,7 +13,7 @@ var projectSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: [true, "your project must havea category!"]
+    required: [true, "your project must have a category!"]
   },
   creator: {
     type: Schema.Types.ObjectId,

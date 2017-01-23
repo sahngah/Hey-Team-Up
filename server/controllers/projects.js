@@ -13,9 +13,9 @@ module.exports = (function() {
     create: function(req, res) {
       console.log('create project request received');
       User.findOne({_id: req.session.user._id}, function(err, user) {
-        let projectInstance = new Project(req.project);
+        let projectInstance = new Project(req.body);
         projectInstance.creator = user._id;
-        projectInstance.memebers.push(user);
+        projectInstance.members.push(user);
         projectInstance.save(function(err, newProject) {
           if (err) {throw err}
           user.projects.push(newProject);

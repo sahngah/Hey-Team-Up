@@ -7,7 +7,8 @@ app.controller('project_controller', ['$scope', 'user_factory', '$location', 'pr
     }
   })
   $scope.CreateNewProject = function(){
-    console.log('project controller: create new project function running!')
+    console.log('project controller: create new project function running!');
+    console.log('****controller', $scope.newProject);
     PF.CreateNewProject($scope.newProject);
   }
 }])
