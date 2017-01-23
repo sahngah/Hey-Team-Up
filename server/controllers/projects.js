@@ -72,6 +72,18 @@ module.exports = (function() {
           "updatedProject": updatedProject
         })
       })
+    },
+    // might not be ready
+    joinProject: function(req, res) {
+      console.log("join project requested");
+      Project.update({_id: req.params.id}, {$push: {members: req.session.user._id}}, function(err) {
+        if (err) {throw err}
+        console.log('added user to project members');
+        User.update({_id: req.session._id}, {$push: {projects: req.params.id}}, function(err) {
+          if (err) {throw err}
+          console.log("added project to user profile");
+        });
+      });
     }
   }
 })();

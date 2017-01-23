@@ -13,6 +13,6 @@ module.exports = function(app) {
      .get('/projects', projects.index)
      .get('/projects/:id', projects.getOneProject)
      .post('/projects', projects.create)
-     .patch('/projects/:id', projects.update) //need validations
+     .patch('/projects/join/:id', projects.joinProject)
      .delete('/projects/:id', projects.deleteProject) // needs validations!
 }
