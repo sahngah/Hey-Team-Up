@@ -27,4 +27,18 @@ var projectSchema = new mongoose.Schema({
   timestamps: true
 });
 
+// removes references in users for deleted projects
+projectSchema.pre('remove', function(next) {
+  console.log("removing project references from users");
+  this.model("User").update({},
+    {$pull: {projects: this._id, projectsCreated: this._id}},
+    {multi: true},
+    function(err) {
+      if (err) throw err;
+      console.log("project reference removal successful from all users");
+    }
+  );
+  next();
+});
+
 mongoose.model('Project', projectSchema);

@@ -63,6 +63,8 @@ module.exports = (function() {
           });
         }
       })
+    } else {
+      console.log("sample project already in db");
     }
   });
 })();

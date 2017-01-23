@@ -45,8 +45,9 @@ module.exports = (function() {
     },
     deleteProject: function(req, res) {
       console.log("project delete request received");
-      Project.remove({_id: req.params.id}, function(err) {
+      Project.findOne({_id: req.params.id}, function(err, projectToBeDeleted) {
         if (err) {throw err}
+        projectToBeDeleted.remove();
         console.log(`successfully deleted project with id ${req.params.id}`);
       })
     },
