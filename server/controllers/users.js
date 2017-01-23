@@ -33,7 +33,7 @@ module.exports = (function() {
       console.log('user profile request');
       User.findOne({_id: req.params.id})
       .populate({
-        path: 'projects',
+        path: 'projects projectsCreated',
         model: 'Project'
       })
       .exec(function(err, user) {
