@@ -8,7 +8,6 @@ module.exports = (function() {
       Project.find({})
       .populate({
         path: 'creator members',
-        ref: 'User'
       })
       .exec(function(err, projects) {
         if (err) {throw err}

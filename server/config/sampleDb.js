@@ -3,17 +3,7 @@ const mongoose = require('mongoose'),
   Project = mongoose.model('Project');
 
 module.exports = (function() {
-  function addSampleDb(addUserOne, addUserTwo, addProject) {
-    var args = Array.prototype.slice.call(arguments);
-    for (let i = 0; i < args.length; i++) {
-      args[i]();
-    }
-  }
-
-  addSampleDb();
-
-
-  function addUserOne() {
+  (function addUserOne() {
     User.findOne({email: 'ac@mail.com'}, function(err, user) {
         if (!user) {
           const userOneInstance = new User({
@@ -31,8 +21,8 @@ module.exports = (function() {
           console.log("sample user already one in db");
         }
     });
-  }
-  function addUserTwo() {
+  })();
+  (function addUserTwo() {
     User.findOne({email: 'sl@mail.com'}, function (err, user) {
       if (!user) {
         const userTwoInstance = new User({
@@ -51,8 +41,8 @@ module.exports = (function() {
         console.log('sample user two already in db');
       }
     });
-  }
-  function addProject() {
+  })();
+  (function addProject() {
     Project.findOne({title: "sample project"}, function(err, project) {
       if (!project) {
         User.findOne({email: "sl@mail.com"}, function(err, user) {
@@ -82,5 +72,5 @@ module.exports = (function() {
         console.log("sample project already in db");
       }
     });
-  }
+  })();
 })();
