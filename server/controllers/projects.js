@@ -5,7 +5,12 @@ const mongoose = require('mongoose'),
 module.exports = (function() {
   return {
     index: function(req, res) {
-      Project.find({}, function(err, projects) {
+      Project.find({})
+      .populate({
+        path: 'creator members',
+        ref: 'User'
+      })
+      .exec(function(err, projects) {
         if (err) {throw err}
         res.json(projects);
       })
@@ -29,7 +34,6 @@ module.exports = (function() {
           })
         });
       })
-
     },
     getOneProject: function(req, res) {
       console.log("project data requested");
