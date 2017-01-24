@@ -37,3 +37,6 @@
   margin-top:0px;
   background: linear-gradient(to bottom, rgba(237,237,237,1) 0%, rgba(246,246,246,1) 54%, rgba(255,255,255,1) 100%);
 }
+footer .navbab-inner {
+  text-align: center;
+}

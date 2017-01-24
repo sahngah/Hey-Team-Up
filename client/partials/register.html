@@ -1,41 +1,48 @@
-<div ng-controller="user_controller">
+<div ng-controller="user_controller" class="wrap">
   <div class="logo_background">
     <a class="logo_a" href="#/"><h2 class="small_logo" align="center">Hey Team Up!</h2></a>
   </div>
-  <form>
-    <h1>Login:</h1>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="text" class="form-control" id="email" placeholder="Email" ng-model="oldUser.email">
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="oldUser.password">
-    </div>
-    <button type="submit" class="btn btn-default" ng-click="login()">Login!</button>
-  </form>
+  <div class="row">
+    <form class="col-md-6">
+      <h1>Login:</h1>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" placeholder="Email" ng-model="oldUser.email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="oldUser.password">
+      </div>
+      <button type="submit" class="btn btn-default" ng-click="login()">Login!</button>
+    </form>
 
-  <h1 class="post_title">New Here? Register:</h1>
-  <form>
-  <div class="form-group">
-    <label for="firstname">First Name:</label>
-    <input type="text" class="form-control" id="firstname" placeholder="First Name" ng-model="newUser.firstName">
+    <form class="col-md-6">
+      <h1 class="post_title">New Here? Register:</h1>
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        <input type="text" class="form-control" id="firstname" placeholder="First Name" ng-model="newUser.firstName">
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        <input type="text" class="form-control" id="lastname" placeholder="Last Name" ng-model="newUser.lastName">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" placeholder="Email" ng-model="newUser.email" id="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="newUser.password">
+      </div>
+      <button type="submit" class="btn btn-default" ng-click="createNewUser()">Submit</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="lastname">Last Name:</label>
-    <input type="text" class="form-control" id="lastname" placeholder="Last Name" ng-model="newUser.lastName">
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" placeholder="Email" ng-model="newUser.email" id="email">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="newUser.password">
-  </div>
-  <button type="submit" class="btn btn-default" ng-click="createNewUser()">Submit</button>
-  </form>
-  <div align="center">
-    <a href="#!/">Home</a>
-  </div>
+  <footer class="container navbar navbar-default navbar-fixed-bottom" align="center">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#!/">Home</a>
+
+      </div>
+    </div>
+  </footer>
 </div>
