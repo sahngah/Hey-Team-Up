@@ -31,5 +31,10 @@ app.factory('user_factory', function($http, $location){
       callback(res.data);
     })
   }
+  factory.getUserProjects = function(userId, callback) {
+    $http.get(`/users/user/${userId}`).then(function(res) {
+      callback(res.data.projects);
+    })
+  }
   return factory;
 })

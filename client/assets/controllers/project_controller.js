@@ -1,4 +1,4 @@
-app.controller('project_controller', ['$scope', 'user_factory', '$location', 'project_factory', function($scope, UF, $location, PF){
+app.controller('project_controller', ['$scope', '$routeParams', 'user_factory', '$location', 'project_factory', function($scope, $routeParams, UF, $location, PF){
   UF.checkOneUser(function(user){
     if(user != null){
       $scope.curUser = user;

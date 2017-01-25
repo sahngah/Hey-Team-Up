@@ -1,13 +1,28 @@
-<div ng-controller="profile_controller">
+<div>
   <div class="logo_background">
     <a class="logo_a" href="#/"><h2 class="small_logo" align="center">Hey Team Up!</h2></a>
   </div>
-  <h1>Welcome, {{curUser.firstName[0].toUpperCase() + curUser.firstName.slice(1)}}!</h1>
+  <h1>Welcome, {{PC.curUser.firstName[0].toUpperCase() + PC.curUser.firstName.slice(1)}}!</h1>
   <div align="center">
     <ul class="navbar">
       <li><a href="#!/">Home</a> |</li>
       <li><a href="#!/project/new">New Project</a> |</li>
       <li><a href="/users/logout">Logout</a></li>
     </ul>
+  </div>
+  <div class="mainpage_project" ng-repeat="project in PC.curUser.projects">
+    <div align="center" ng-if="project.category == 'javascript'">
+      <h2 class="front_project_category"style='color:#ff7976'>{{project.category}}</h2>
+    </div>
+    <div align="center" ng-if="project.category == 'iOS'">
+      <h2 style="color:#ff76b8" class="front_project_category">{{project.category}}</h2>
+    </div>
+    <div align="center" ng-if="project.category == 'python'">
+      <h2 style="color:#76ff79" class="front_project_category">{{project.category}}</h2>
+    </div>
+    <h3>{{project.title}}</h3>
+    <p>{{project.description}}</p>
+    <h4>Created By: {{project.creator.firstName}} {{project.creator.lastName}}</h4>
+    <button type="button" class="btn btn-danger"name="button" ng-click="deleteProject(project._id)">Delete This Project</button>
   </div>
 </div>
