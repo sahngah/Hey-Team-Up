@@ -10,8 +10,13 @@ app.config(function($routeProvider){
   })
   .when('/myprofile', {
     templateUrl: './partials/myprofile.html',
-    controller: "profile_controller",
+    controller: "my_profile_controller",
     controllerAs: 'PC'
+  })
+  .when('/users/:id', {
+    templateUrl: './partials/otherUserProfile.html',
+    controller: 'otherUserProfileController',
+    controllerAs: 'oUPC'
   })
   .when('/project/new', {
     templateUrl: './partials/newproject.html'
