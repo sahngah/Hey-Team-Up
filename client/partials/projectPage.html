@@ -1,0 +1,28 @@
+<div>
+  <div class="logo_background">
+    <h1 class="logo" align="center">Hey Team Up!</h1>
+  </div>
+  <div align="center">
+    <ul class="navbar">
+      <li><a href="#!/">Home</a> |</li>
+      <li><a href="#!/myprofile">My Profile</a></li>
+      <li><a href="#!/project/new">New Project</a> |</li>
+      <li><a href="/users/logout">Logout</a></li>
+    </ul>
+  </div>
+</header>
+  <div class="project">
+    <h1>{{PC.project.title}}</h1>
+    <p>Created by: <a href="/#!/users/{{PC.project.creator._id}}">{{PC.project.creator.firstName}}</a></p>
+    <div id="projectMembers">
+      <h3>Members:</h3>
+      <ul>
+        <li ng-repeat='member in PC.project.members'>{{member.firstName}}</li>
+      </ul>
+    </div>
+
+
+    <button ng-click="PC.joinProject()" class="btn btn-success">Join This Project</button>
+  </div>
+
+</div>

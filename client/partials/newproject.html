@@ -1,8 +1,8 @@
-<div ng-controller="project_controller">
+<div>
   <div class="logo_background">
     <a class="logo_a" href="#/"><h2 class="small_logo" align="center">Hey Team Up!</h2></a>
   </div>
-  <div ng-if="!curUser">
+  <div ng-if="!nPC.curUser">
     <h1><a href="#!/register">Login</a> To Create A New Project:</h1>
     <form>
       <div class="form-group">
@@ -18,7 +18,7 @@
       </ul>
     </div>
   </div>
-  <div ng-if="curUser != null">
+  <div ng-if="nPC.curUser != null">
     <form ng-controller="project_controller">
       <div class="form-group">
         <label for="Category">Category:</label>

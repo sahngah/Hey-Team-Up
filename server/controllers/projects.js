@@ -86,6 +86,9 @@ module.exports = (function() {
         User.update({_id: req.session._id}, {$push: {projects: req.params.id}}, function(err) {
           if (err) {throw err}
           console.log("added project to user profile");
+          res.json({
+            'message': "successfully joined project",
+          })
         });
       });
     }

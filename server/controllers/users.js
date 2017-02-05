@@ -34,7 +34,11 @@ module.exports = (function() {
       User.findOne({_id: req.params.id})
       .populate({
         path: 'projects projectsCreated',
-        model: 'Project'
+        model: 'Project',
+        populate: {
+          path: 'creator',
+          model: 'User'
+        }
       })
       .exec(function(err, user) {
         if (err) {
