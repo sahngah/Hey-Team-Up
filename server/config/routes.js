@@ -8,9 +8,9 @@ module.exports = function(app) {
      .get('/users/user/:id', users.getOneUser)
      .post('/users', users.create)
      .post('/users/login', users.login)
-     .patch('/users/user/:id', users.update) //need validations
+     .patch('/users/:id', users.update) //need validations
      .delete('/users/:id', users.delete)
-     .get('/projects', projects.index)
+     .get('/projects', projects.indtex)
      .get('/projects/:id', projects.getOneProject)
      .post('/projects', projects.create)
      .patch('/projects/join/:id', projects.joinProject)
