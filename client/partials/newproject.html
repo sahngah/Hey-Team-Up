@@ -1,7 +1,7 @@
 <div>
-  <div class="logo_background">
+  <header class="logo_background">
     <a class="logo_a" href="#/"><h2 class="small_logo" align="center">Hey Team Up!</h2></a>
-  </div>
+  </header>
   <div ng-if="!nPC.curUser">
     <h1><a href="#!/register">Login</a> To Create A New Project:</h1>
     <form>
@@ -11,7 +11,7 @@
       <textarea class="form-control" rows="8" cols="40" placeholder="Description" disabled></textarea>
       <button class="btn btn-warning">Submit</button>
     </form>
-    <div align="center">
+    <footer class="navbar-fixed-bottom" align="center">
       <ul class="navbar">
         <li><a href="#!/">Home</a> |</li>
         <li><a href="#!/register">Login</a></li>
@@ -36,11 +36,11 @@
       <textarea class="form-control" rows="8" cols="40" placeholder="Description" ng-model="nPC.newProject.description"></textarea>
       <button type="submit" class="btn btn-default" ng-click="nPC.CreateNewProject()">Submit</button>
     </form>
-    <div align="center">
+    <footer class="navbar-fixed-bottom" align="center">
       <ul class="navbar">
         <li><a href="#!/">Home</a> |</li>
         <li><a href="/users/logout">Logout</a></li>
       </ul>
-    </div>
+    </footer>
   </div>
 </div>

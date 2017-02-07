@@ -1,9 +1,7 @@
 <div>
-  <header>
-    <div class="logo_background">
+    <header class="logo_background">
       <h1 class="logo" align="center">Hey Team Up!</h1>
-    </div>
-  </header>
+    </header>
   <h1>User Profile: {{oUPC.thisUser.firstName}} {{oUPC.thisUser.lastName}}</h1>
 
   <div class="projects">
@@ -24,12 +22,12 @@
       <button type="button" class="btn btn-danger"name="button" ng-click="deleteProject(project._id)" ng-if="oUPC.curUser._id == project.creator._id">Delete This Project</button>
     </div>
   </div>
-  <div align="center">
-      <ul class="navbar">
-        <li><a href="#!/">Home</a> |</li>
-        <li><a href="#!/myprofile">My Profile</a></li>
-        <li><a href="#!/project/new">New Project</a> |</li>
-        <li><a href="/users/logout">Logout</a></li>
-      </ul>
-    </div>
+  <footer class="navbar-fixed-bottom" align="center">
+    <ul class="navbar">
+      <li><a href="#!/">Home</a> |</li>
+      <li><a href="#!/myprofile">My Profile</a></li>
+      <li><a href="#!/project/new">New Project</a> |</li>
+      <li><a href="/users/logout">Logout</a></li>
+    </ul>
+  </footer>
 </div>
