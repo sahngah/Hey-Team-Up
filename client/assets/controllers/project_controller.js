@@ -1,14 +1,26 @@
-app.controller('project_controller', ['$scope', 'user_factory', '$location', 'project_factory', function($scope, UF, $location, PF){
+app.controller('project_controller', ['$scope', '$routeParams', 'user_factory', '$location', 'project_factory', function($scope, $routeParams, UF, $location, PF){
+  const self = this;
   UF.checkOneUser(function(user){
     if(user != null){
-      $scope.curUser = user;
+      self.curUser = user;
     }else{
-      $scope.curUser = null;
+      self.curUser = null;
+      //$location.path('/register');
     }
   })
-  $scope.CreateNewProject = function(){
-    console.log('project controller: create new project function running!');
-    console.log('****controller', $scope.newProject);
-    PF.CreateNewProject($scope.newProject);
+  PF.getOneProject($routeParams.projectID, getProject);
+  self.joinProject = function() {
+      console.log('join project requested');
+      PF.joinProject($routeParams.projectID, function(project) {
+        self.project = project;
+      });
+  }
+  this.joinProject = function() {
+    console.log("joining project")
+    PF.joinProject($routeParams.projectID, getProject)
+  }
+  function getProject(project) {
+    self.project = project;
+    console.log(self.project);
   }
 }])

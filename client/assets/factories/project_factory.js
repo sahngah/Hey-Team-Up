@@ -18,5 +18,16 @@ app.factory('project_factory', function($http, $location){
     console.log('project factory: project delete function running');
     $http.delete('/projects/' + projectID)
   }
+  factory.getOneProject = function(projectID, callback) {
+    $http.get(`/projects/${projectID}`).then(function(res) {
+      callback(res.data);
+    })
+  }
+  factory.joinProject = function(projectID, callback) {
+    $http.patch(`/projects/join/${projectID}`).then(function(res) {
+      console.log(res);
+      factory.getOneProject(projectID, callback);
+    });
+  }
   return factory;
 })

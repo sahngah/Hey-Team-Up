@@ -34,7 +34,11 @@ module.exports = (function() {
       User.findOne({_id: req.params.id})
       .populate({
         path: 'projects projectsCreated',
-        model: 'Project'
+        model: 'Project',
+        populate: {
+          path: 'creator',
+          model: 'User'
+        }
       })
       .exec(function(err, user) {
         if (err) {
@@ -42,9 +46,18 @@ module.exports = (function() {
           res.json({
             "message": "user not found"
           });
+        } else {
+          //check for user in session
+          // if (req.session.user) {
+            console.log('sending user data');
+            res.json(user);
+          // } else {
+          //   console.log("access denied, user not logged in");
+          //   res.json({
+          //     "message": "You must be logged in to get user data"
+          //   })
+          // }
         }
-        console.log('sending user data');
-        res.json(user);
       });
     },
     login: function(req, res) {

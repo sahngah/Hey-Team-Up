@@ -34,7 +34,8 @@
     </div>
     <h3>{{project.title}}</h3>
     <p>{{project.description}}</p>
-    <h4>Created By: {{project.creator.firstName}} {{project.creator.lastName}}</h4>
-    <button type="button" class="btn btn-danger"name="button" ng-click="deleteProject(project._id)">Delete This Project</button>
+    <h4>Created By: <a href="/#!/users/{{project.creator._id}}">{{project.creator.firstName}} {{project.creator.lastName}}</h4></a>
+    <!-- <button type="button" class="btn btn-danger"name="button" ng-click="deleteProject(project._id)">Delete This Project</button> -->
+    <a href="/#!/project/info/{{project._id}}">More Project Information</a>
   </div>
 </div>

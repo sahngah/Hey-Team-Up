@@ -9,10 +9,24 @@ app.config(function($routeProvider){
     templateUrl: './partials/register.html'
   })
   .when('/myprofile', {
-    templateUrl: './partials/myprofile.html'
+    templateUrl: './partials/myprofile.html',
+    controller: "my_profile_controller",
+    controllerAs: 'PC'
+  })
+  .when('/users/:id', {
+    templateUrl: './partials/otherUserProfile.html',
+    controller: 'otherUserProfileController',
+    controllerAs: 'oUPC'
+  })
+  .when('/project/info/:projectID', {
+    templateUrl: './partials/projectPage.html',
+    controller: 'project_controller',
+    controllerAs: 'PC'
   })
   .when('/project/new', {
-    templateUrl: './partials/newproject.html'
+    templateUrl: './partials/newproject.html',
+    controller: 'newProjectController',
+    controllerAs: 'nPC'
   })
   .otherwise({
     redirectTo: '/'
