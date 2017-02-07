@@ -29,5 +29,8 @@ app.factory('project_factory', function($http, $location){
       factory.getOneProject(projectID, callback);
     });
   }
+  factory.getProjectsByCategory = function(category, callback){
+    console.log('factory: get projects by category function', category);
+  }
   return factory;
 })

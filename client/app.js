@@ -29,7 +29,9 @@ app.config(function($routeProvider){
     controllerAs: 'nPC'
   })
   .when('/project/category/:category', {
-    templateUrl: './partials/projectsByCategory.html'
+    templateUrl: './partials/projectsByCategory.html',
+    controller: 'projectsByCategoryController',
+    controllerAs: 'PCC'
   })
   .otherwise({
     redirectTo: '/'
