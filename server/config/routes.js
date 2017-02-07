@@ -10,7 +10,7 @@ module.exports = function(app) {
      .post('/users/login', users.login)
      .patch('/users/:id', users.update) //need validations
      .delete('/users/:id', users.delete)
-     .get('/projects', projects.indtex)
+     .get('/projects', projects.index)
      .get('/projects/:id', projects.getOneProject)
      .post('/projects', projects.create)
      .patch('/projects/join/:id', projects.joinProject)
