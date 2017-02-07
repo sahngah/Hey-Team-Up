@@ -3,7 +3,6 @@
     <a class="logo_a" href="#/"><h2 class="small_logo" align="center">Hey Team Up!</h2></a>
   </header>
   <h1>Welcome, {{PC.curUser.firstName[0].toUpperCase() + PC.curUser.firstName.slice(1)}}!</h1>
-
   <div class="mainpage_project" ng-repeat="project in PC.curUser.projects">
     <div align="center" ng-if="project.category == 'javascript'">
       <h2 class="front_project_category"style='color:#ff7976'>{{project.category}}</h2>

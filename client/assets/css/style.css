@@ -1,3 +1,7 @@
+/* this padding is to prevent the footer to overlap contents on body */
+body{
+  padding-bottom:120px;
+}
 /* Main Page */
 .register_button{
   color:black;
