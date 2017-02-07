@@ -24,4 +24,8 @@ app.controller('user_controller', ['$scope', 'user_factory', '$location', 'proje
     PF.deleteProject(projectID);
     $route.reload();
   }
+  $scope.findByCategory = function(){
+    console.log($scope.byCategory);
+    $location.path('/project/category/' + $scope.byCategory.category);
+  }
 }])

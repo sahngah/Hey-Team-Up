@@ -28,6 +28,9 @@ app.config(function($routeProvider){
     controller: 'newProjectController',
     controllerAs: 'nPC'
   })
+  .when('/project/category/:category', {
+    templateUrl: './partials/projectsByCategory.html'
+  })
   .otherwise({
     redirectTo: '/'
   })
