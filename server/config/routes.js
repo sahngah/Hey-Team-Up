@@ -14,5 +14,6 @@ module.exports = function(app) {
      .get('/projects/:id', projects.getOneProject)
      .post('/projects', projects.create)
      .patch('/projects/join/:id', projects.joinProject)
+     .patch('/projects/leave/:id', projects.leaveProject)
      .delete('/projects/:id', projects.deleteProject) // needs validations!
 }

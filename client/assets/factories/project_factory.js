@@ -29,6 +29,12 @@ app.factory('project_factory', function($http, $location){
       factory.getOneProject(projectID, callback);
     });
   }
+  factory.leaveProject = function(projectID, callback) {
+    $http.patch(`/projects/leave/${projectID}`).then(function(res) {
+      console.log(res);
+      factory.getOneProject(projectID, callback);
+    })
+  }
   factory.getProjectsByCategory = function(category, callback){
     console.log('factory: get projects by category function', category);
   }

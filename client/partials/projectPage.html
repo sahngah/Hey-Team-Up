@@ -12,9 +12,8 @@
         <li ng-repeat='member in PC.project.members'>{{member.firstName}}</li>
       </ul>
     </div>
-
-
-    <button ng-click="PC.joinProject()" class="btn btn-success">Join This Project</button>
+    <button  ng-if="!PC.curUser.projects.includes(PC.project._id)" ng-click="PC.joinProject()" class="btn btn-success">Join Project</button>
+    <button ng-if="PC.curUser.projects.includes(PC.project._id)" ng-click="PC.leaveProject()" class="btn btn-danger">Leave Project</button>
   </div>
   <footer class="navbar-fixed-bottom" align="center">
     <ul class="navbar">

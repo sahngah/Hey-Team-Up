@@ -58,6 +58,11 @@ module.exports = (function() {
             res.json({
               "message": "Successfully deleted project"
             });
+          } else {
+            console.log("user does not have permission to delete project");
+            res.json({
+              "errors": "You do not have permission to delete this project"
+            })
           }
         })
       } else {
@@ -77,7 +82,7 @@ module.exports = (function() {
         })
       })
     },
-    // might not be ready
+    // needs validation to check if user has already joined project
     joinProject: function(req, res) {
       if (!req.session.user) {
         res.json({
@@ -96,6 +101,23 @@ module.exports = (function() {
             })
           });
         });
+      }
+    },
+    leaveProject: function(req, res) {
+      if (!req.session.user) {
+        res.json({
+          "errors": "user not logged in"
+        })
+      } else {
+        Project.update({_id: req.params.id}, {$pull: {members: req.session.user._id}}, function(err) {
+          if (err) {throw err}
+          User.update({_id: req.session.user._id}, {$pull: {projects: req.params.id}}, function(err) {
+            if (err) {console.log(err)}
+            res.json({
+              "message": "successfully left project"
+            })
+          })
+        })
       }
     }
   }
