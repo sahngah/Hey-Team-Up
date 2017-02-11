@@ -36,6 +36,10 @@ var userSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'Project'
   }],
+  messages: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Message'
+  }],
   admin: {
     type: Boolean,
     default: false

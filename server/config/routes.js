@@ -1,5 +1,6 @@
 const users = require('./../controllers/users.js'),
-      projects = require('./../controllers/projects.js');
+      projects = require('./../controllers/projects.js'),
+      messages = require('./../controllers/messages.js');
 
 module.exports = function(app) {
   app.get('/users', users.index)
@@ -16,4 +17,5 @@ module.exports = function(app) {
      .patch('/projects/join/:id', projects.joinProject)
      .patch('/projects/leave/:id', projects.leaveProject)
      .delete('/projects/:id', projects.deleteProject) // needs validations!
+     .get('/messages', messages.index);
 }

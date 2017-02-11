@@ -1,6 +1,7 @@
 const mongoose = require('mongoose'),
       Project = mongoose.model('Project'),
-      User = mongoose.model('User');
+      User = mongoose.model('User'),
+      Message = mongoose.model('Message');
 
 module.exports = (function() {
   return {
@@ -41,6 +42,10 @@ module.exports = (function() {
       .populate({
         path: "creator members",
         model: "User"
+      })
+      .populate({
+        path: "messages",
+        model: "Message"
       })
       .exec(function(err, project) {
         if (err) {throw err}

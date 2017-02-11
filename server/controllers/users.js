@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
       User = mongoose.model('User'),
+      Message = mongoose.model('Message'),
       Project = mongoose.model('Project');
 
 module.exports = (function() {

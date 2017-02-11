@@ -15,6 +15,10 @@ var projectSchema = new mongoose.Schema({
     type: String,
     required: [true, "your project must have a category!"]
   },
+  messages: [{
+    type: Schema.Types.ObjectId,
+    ref: "Message"
+  }],
   creator: {
     type: Schema.Types.ObjectId,
     ref: 'User'
