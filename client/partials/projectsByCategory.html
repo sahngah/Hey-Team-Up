@@ -1,7 +1,13 @@
 <header class="logo_background">
   <a class="logo_a" href="#/"><h2 class="small_logo" align="center">Hey Team Up!</h2></a>
 </header>
-
+<section ng-repeat="project in projectsByCategory">
+  <h1>{{project.title}}</h1>
+  <p>{{project.description}}</p>
+  <h3>category:{{project.category}}</h3>
+  <h4>Created By:{{project.creator.firstName}}</h4>
+  <hr>
+</section>
 <footer class="navbar-fixed-bottom" align="center">
   <ul class="navbar">
     <li><a href="#!/">Home</a> |</li>

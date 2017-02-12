@@ -37,6 +37,9 @@ app.factory('project_factory', function($http, $location){
   }
   factory.getProjectsByCategory = function(category, callback){
     console.log('factory: get projects by category function', category);
+    $http.get('/projects/category/' + category).then(function(res){
+      callback(res.data);
+    })
   }
   return factory;
 })

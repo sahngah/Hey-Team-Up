@@ -9,12 +9,13 @@ app.controller('projectsByCategoryController', ['$scope', '$routeParams', 'user_
     }
   })
   PF.getProjectsByCategory($routeParams.category, function(projects){
-    console.log('controller get projects by category', projects);
+    console.log('controller get projects by category function');
+    $scope.projectsByCategory = projects;
   });
     //PF.getOneProject($routeParams.projectID, getProject);
-  this.CreateNewProject = function(){
-    console.log('project controller: create new project function running!');
-    console.log('****controller', self.newProject);
-    PF.CreateNewProject(self.newProject);
-  }
+  // this.CreateNewProject = function(){
+  //   console.log('project controller: create new project function running!');
+  //   console.log('****controller', self.newProject);
+  //   PF.CreateNewProject(self.newProject);
+  // }
 }])

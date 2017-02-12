@@ -124,6 +124,17 @@ module.exports = (function() {
           })
         })
       }
+    },
+    ProjectsByCategory: function(req, res){
+      Project.find({category: req.params.category})
+      .populate({
+          path: 'creator members',
+          model: 'User'
+        })
+        .exec(function(err, projects) {
+          if (err) {throw err}
+          res.json(projects);
+        })
     }
   }
 })();

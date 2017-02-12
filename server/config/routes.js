@@ -13,6 +13,7 @@ module.exports = function(app) {
      .delete('/users/:id', users.delete)
      .get('/projects', projects.index)
      .get('/projects/:id', projects.getOneProject)
+     .get('/projects/category/:category', projects.ProjectsByCategory)
      .post('/projects', projects.create)
      .patch('/projects/join/:id', projects.joinProject)
      .patch('/projects/leave/:id', projects.leaveProject)
