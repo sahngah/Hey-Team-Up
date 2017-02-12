@@ -6,7 +6,7 @@ app.controller('project_controller', ['$scope', '$routeParams', 'user_factory', 
       console.log(self.curUser);
     }else{
       self.curUser = null;
-      $location.path('/register');
+      // $location.path('/register');
     }
   })
   PF.getOneProject($routeParams.projectID, getProject);

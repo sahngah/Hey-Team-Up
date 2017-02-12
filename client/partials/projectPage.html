@@ -12,8 +12,11 @@
         <li ng-repeat='member in PC.project.members'>{{member.firstName}}</li>
       </ul>
     </div>
-    <button  ng-if="!PC.curUser.projects.includes(PC.project._id)" ng-click="PC.joinProject()" class="btn btn-success">Join Project</button>
-    <button ng-if="PC.curUser.projects.includes(PC.project._id)" ng-click="PC.leaveProject()" class="btn btn-danger">Leave Project</button>
+    <a href="#!/register"><button ng-if="!PC.curUser" class="btn btn-danger">Login To Join!</button></a>
+    <section ng-if="PC.curUser">
+      <button ng-if="!PC.curUser.projects.includes(PC.project._id)" ng-click="PC.joinProject()" class="btn btn-success">Join Project</button>
+      <button ng-if="PC.curUser.projects.includes(PC.project._id)" ng-click="PC.leaveProject()" class="btn btn-danger">Leave Project</button>
+    </section>
   </div>
   <footer class="navbar-fixed-bottom" align="center">
     <ul class="navbar">
