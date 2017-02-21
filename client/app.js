@@ -33,6 +33,11 @@ app.config(function($routeProvider){
     controller: 'projectsByCategoryController',
     controllerAs: 'PCC'
   })
+  .when('/project/keyword/:keyword', {
+    templateUrl: './partials/projectsByKeyword.html',
+    controller: 'projectsByKeywordController',
+    controllerAs: 'PKC'
+  })
   .otherwise({
     redirectTo: '/'
   })

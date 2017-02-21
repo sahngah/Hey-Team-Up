@@ -8,8 +8,8 @@
     <a class="register_button" href="#!/register"><button class="btn btn-default">Register/Login</button></a>
   </div>
   <h3>Find Projects/Teams By Keyword:</h3>
-  <input class="form-control search" type="text" name="name" value="">
-  <button class="btn btn-success">Submit</button>
+  <input class="form-control search" type="text" name="name" ng-model="byKeyword.keyword">
+  <button class="btn btn-success" ng-click="findByKeyword()">Submit</button>
   <h3>Find Projects/Teams By Category:</h3>
   <form>
     <select class="form-control search" ng-model="byCategory.category">
