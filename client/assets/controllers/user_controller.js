@@ -25,12 +25,16 @@ app.controller('user_controller', ['$scope', 'user_factory', '$location', 'proje
     $route.reload();
   }
   $scope.findByCategory = function(){
-    $location.path('/project/category/' + $scope.byCategory.category);
+    if($scope.byCategory == null){
+      alert('Category Field Is Required!');
+    }else{
+      $location.path('/project/category/' + $scope.byCategory.category);
+    }
   }
   $scope.findByKeyword = function(){
     console.log($scope.byKeyword);
     if($scope.byKeyword == null){
-      alert('Keyword Input Is Required!');
+      alert('Keyword Field Is Required!');
     }else{
       $location.path('/project/keyword/' + $scope.byKeyword.keyword);
     }
