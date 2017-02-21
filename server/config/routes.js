@@ -14,6 +14,7 @@ module.exports = function(app) {
      .get('/projects', projects.index)
      .get('/projects/:id', projects.getOneProject)
      .get('/projects/category/:category', projects.ProjectsByCategory)
+    //  .get('/projects/keyword/:keyword', projects.ProjectsByKeyword)
      .post('/projects', projects.create)
      .patch('/projects/join/:id', projects.joinProject)
      .patch('/projects/leave/:id', projects.leaveProject)

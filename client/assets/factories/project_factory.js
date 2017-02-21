@@ -41,5 +41,11 @@ app.factory('project_factory', function($http, $location){
       callback(res.data);
     })
   }
+  factory.getProjectsByKeyword = function(keyword, callback){
+    console.log('factory: get projects by keyword function', keyword);
+    $http.get('/projects/keyword/' + keyword).then(function(res){
+      callback(res.data);
+    })
+  }
   return factory;
 })
