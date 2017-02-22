@@ -1,6 +1,14 @@
 <header class="logo_background">
   <h1 class="logo" align="center">Hey Team Up!</h1>
 </header>
+<section ng-repeat="project in projects | filter:projectsByKeyword">
+  <h1>{{project.title}}</h1>
+  <p>{{project.description}}</p>
+  <h3>category:{{project.category}}</h3>
+  <h4>Created By:{{project.creator.firstName}}</h4>
+  <a href="/#!/project/info/{{project._id}}">More Project Information</a>
+  <hr>
+</section>
 <footer class="navbar-fixed-bottom" align="center">
   <ul class="navbar">
     <li><a href="#!/">Home</a> |</li>

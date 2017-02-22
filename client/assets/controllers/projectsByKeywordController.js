@@ -8,8 +8,12 @@ app.controller('projectsByKeywordController', ['$scope', '$routeParams', 'user_f
       //$location.path('/register');
     }
   })
-  PF.getProjectsByKeyword($routeParams.keyword, function(projects){
+  PF.findAllProjects(function(projects){
     console.log('controller get projects by category function');
-    $scope.projectsByKeyword = projects;
+    $scope.projects = projects;
+    $scope.projectsByKeyword = function(project){
+      return ((project.title).includes($routeParams.keyword)
+      || (project.description).includes($routeParams.keyword)
+    )}
   });
 }])
