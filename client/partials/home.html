@@ -22,7 +22,7 @@
     <button class="btn btn-success" ng-click="findByCategory()">Submit</button>
   </form>
   <h3>Explore Projects Created By Other Users:</h3>
-  <div class="mainpage_project" ng-repeat="project in projects">
+  <div class="mainpage_project" ng-repeat="project in projects | orderBy:'category'">
     <div align="center" ng-if="project.category == 'javascript'">
       <h2 class="front_project_category"style='color:#ff7976'>{{project.category}}</h2>
     </div>
